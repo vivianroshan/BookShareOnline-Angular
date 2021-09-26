@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './authenticate/login/login.component';
 import { RegisterComponent } from './authenticate/register/register.component';
 
@@ -23,9 +23,10 @@ import { CartComponent } from './cart/cart.component';
 import { AuthenticateService } from './services/authenticate.service';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { BookComponent } from './book/book.component';
 import { AddbookComponent } from './book/addbook/addbook.component';
 import { ShowbookComponent } from './book/showbook/showbook.component';
+
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,6 @@ import { ShowbookComponent } from './book/showbook/showbook.component';
     LoginviewComponent,
     LoggedinviewComponent,
     CartComponent,
-    BookComponent,
     AddbookComponent,
     ShowbookComponent
   ],
@@ -52,9 +52,15 @@ import { ShowbookComponent } from './book/showbook/showbook.component';
     MatInputModule,
     MatSnackBarModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
   ],
-  providers: [AuthenticateService],
+  providers: [AuthenticateService, 
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

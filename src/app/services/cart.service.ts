@@ -12,7 +12,7 @@ export class CartService {
   readonly APIUrl = "https://localhost:44343/api";
   
   getCartList(){
-    return this.http.get<any[]>(this.APIUrl + "/api/cart/"+localStorage.getItem('username'));
+    return this.http.get<any[]>(this.APIUrl + "/cart/"+localStorage.getItem('username'));
   }
   
 }

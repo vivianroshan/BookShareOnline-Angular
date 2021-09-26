@@ -31,6 +31,7 @@ export class CartComponent implements OnInit {
     this.service.getCartList().subscribe(data => {
       this.listData = new MatTableDataSource(data);
       this.listData.sort = this.sort;
+      console.log(this.listData);
     });
     console.log(this.listData);
   }

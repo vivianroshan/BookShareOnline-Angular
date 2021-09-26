@@ -16,8 +16,8 @@ export class AppComponent {
   constructor(private dialog: MatDialog, public service: AuthenticateService)
   {
     localStorage.setItem('token','0');
-    localStorage.setItem('name','user');
-    localStorage.setItem('role','user');
+    localStorage.setItem('username','user');
+    localStorage.setItem('role','role');
   }
   onAddbook() {
     const dialogConfig = new MatDialogConfig();
