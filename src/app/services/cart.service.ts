@@ -14,4 +14,5 @@ export class CartService {
   getCartList(){
     return this.http.get<any[]>(this.APIUrl + "/api/cart/"+localStorage.getItem('username'));
   }
+  
 }

@@ -1,16 +1,62 @@
-<div class="heading">upload book</div>
 
-<div class = "row">
-    <div class="col-md-6">black</div>
-    <div class="col-md-6">white</div>
+<div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+        <h2>Upload Book</h2>
+    </div>
+    <div class="col-md-5"></div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            Image
+        </div>
+        <div class="col-md-6">
+            <div style="overflow : auto;">
+            <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        
+                <div class="mt-3 input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">AuthorName</span>
+                    </div>
+                    <input required minlength="2" type="text" class="form-control" name="authorname" #FirstName="ngModel"
+                        [(ngModel)]="service.formData.authorname">
+                </div>
+        
+        
+                <div class="mt-3 input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Details</span>
+                    </div>
+                    <input required minlength="0" type="text" class="form-control" name="details" #LastName="ngModel"
+                        [(ngModel)]="service.formData.details">
+                </div>
+                <div class="mt-3 input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">price</span>
+                    </div>
+                    <input required minlength="0" type="number" class="form-control" name="price" #LastName="ngModel"
+                        [(ngModel)]="service.formData.price">
+                </div>
+                <button class="mt-3" mat-raised-button color="primary" type="submit">Login</button>
+            </form> 
+            <!-- <div class="row rowth">Aurthor Name</div>
+            <div class="row rowth">Details</div>
+            <div class="row rowth">Price</div>
+            <button mat-raised-button color="primary" (submit)="onAdd()" >
+                Upload
+            </button> -->
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
 <!-- 
-
-<mat-form-field appearance="legacy" style="margin-left: 10px; margin-right: 10px;">
-    <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
-</mat-form-field>
-
 <div class="mat-elevation-z8" style="margin-left: 10px; margin-right: 10px;">
     <div style="overflow: auto;">
         <table mat-table [dataSource]="listData" matSort>

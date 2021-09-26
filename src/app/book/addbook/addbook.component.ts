@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { BookService } from 'src/app/services/book.service';
 
 @Component({
   selector: 'app-addbook',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddbookComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service:BookService) { }
 
   ngOnInit(): void {
+  }
+  onSubmit(Form:NgForm){
+
   }
 
 }
