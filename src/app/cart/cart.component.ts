@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   }
 
   listData = new MatTableDataSource<any>();
-  displayedColumns: string[] = ['id', 'BookName', 'Quantity', 'Price', 'SumTotal'];
+  displayedColumns: string[] = ['id', 'BookName', 'Quantity', 'Price', 'SumTotal',"Options"];
   @ViewChild(MatSort) sort: MatSort = new MatSort();
 
   refreshCartList() {

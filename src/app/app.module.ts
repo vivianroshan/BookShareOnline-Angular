@@ -27,6 +27,7 @@ import { AddbookComponent } from './book/addbook/addbook.component';
 import { ShowbookComponent } from './book/showbook/showbook.component';
 
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ShowIndividualBookComponent } from './book/show-individual-book/show-individual-book.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     LoggedinviewComponent,
     CartComponent,
     AddbookComponent,
-    ShowbookComponent
+    ShowbookComponent,
+    ShowIndividualBookComponent
   ],
   imports: [
     BrowserModule,

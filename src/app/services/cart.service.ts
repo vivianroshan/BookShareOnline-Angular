@@ -14,5 +14,9 @@ export class CartService {
   getCartList(){
     return this.http.get<any[]>(this.APIUrl + "/cart/"+localStorage.getItem('username'));
   }
+
+  addToCart(bookid:number,quantity:number){
+    return this.http.post<any[]>(this.APIUrl + "/cart/"+localStorage.getItem('username')+"/"+bookid,quantity);
+  }
   
 }

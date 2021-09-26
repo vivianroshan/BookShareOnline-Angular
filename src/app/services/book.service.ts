@@ -13,8 +13,13 @@ export class BookService {
   readonly APIUrl = "https://localhost:44343/api";
 
   formData = new BookModel();
-
-  getJWTToken(): Observable<any> {
-    return this.http.post<any>(this.APIUrl + "/authenticate/login",this.formData);
+  bookid= 0
+  addBook() {
+    return this.http.post(this.APIUrl + "/books", this.formData);
   }
+
+  getBooks(){
+    return this.http.get<any[]>(this.APIUrl + "/books");
+  }
+
 }
