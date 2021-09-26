@@ -19,6 +19,13 @@ import {MatInputModule} from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoginviewComponent } from './authenticate/loginview/loginview.component';
 import { LoggedinviewComponent } from './authenticate/loggedinview/loggedinview.component';
+import { CartComponent } from './cart/cart.component';
+import { AuthenticateService } from './services/authenticate.service';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { BookComponent } from './book/book.component';
+import { AddbookComponent } from './book/addbook/addbook.component';
+import { ShowbookComponent } from './book/showbook/showbook.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,11 @@ import { LoggedinviewComponent } from './authenticate/loggedinview/loggedinview.
     LoginComponent,
     RegisterComponent,
     LoginviewComponent,
-    LoggedinviewComponent
+    LoggedinviewComponent,
+    CartComponent,
+    BookComponent,
+    AddbookComponent,
+    ShowbookComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +50,11 @@ import { LoggedinviewComponent } from './authenticate/loggedinview/loggedinview.
     FormsModule,
     MatPaginatorModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthenticateService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

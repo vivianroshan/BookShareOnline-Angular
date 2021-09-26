@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         localStorage.setItem('token',res.token);
         localStorage.setItem('username',res.name);
+        localStorage.setItem('role',res.role);
         this._snackBar.open("Login sucessful !!!","",{
           duration:5000,
           verticalPosition:"top"

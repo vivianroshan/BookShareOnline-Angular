@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LoginComponent } from './authenticate/login/login.component';
+import { ShowbookComponent } from './book/showbook/showbook.component';
 import { AuthenticateService } from './services/authenticate.service';
 
 @Component({
@@ -16,12 +17,13 @@ export class AppComponent {
   {
     localStorage.setItem('token','0');
     localStorage.setItem('name','user');
+    localStorage.setItem('role','user');
   }
-  onAdd() {
+  onAddbook() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "70%";
-    this.dialog.open(LoginComponent, dialogConfig);
+    this.dialog.open(ShowbookComponent, dialogConfig);
   }
 }
