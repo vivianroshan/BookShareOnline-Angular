@@ -29,6 +29,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ShowIndividualBookComponent } from './book/show-individual-book/show-individual-book.component';
 import { OrderComponent } from './order/order.component';
 import { ShowOrderComponent } from './order/show-order/show-order.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ShowOrderComponent } from './order/show-order/show-order.component';
     ShowbookComponent,
     ShowIndividualBookComponent,
     OrderComponent,
-    ShowOrderComponent
+    ShowOrderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
