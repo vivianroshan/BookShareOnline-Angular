@@ -16,7 +16,13 @@ export class CartService {
   }
 
   addToCart(bookid:number,quantity:number){
+    console.log()
     return this.http.post<any[]>(this.APIUrl + "/cart/"+localStorage.getItem('username')+"/"+bookid,quantity);
   }
+
+  deleteCartEntry(cartid:number){
+    return this.http.delete<any[]>(this.APIUrl + "/cart/"+localStorage.getItem('username')+"/"+cartid);
+  }
+
   
 }

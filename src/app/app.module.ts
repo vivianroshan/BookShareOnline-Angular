@@ -10,9 +10,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './authenticate/login/login.component';
 import { RegisterComponent } from './authenticate/register/register.component';
-
 import {MatDialogModule} from '@angular/material/dialog';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
@@ -28,6 +27,8 @@ import { ShowbookComponent } from './book/showbook/showbook.component';
 
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ShowIndividualBookComponent } from './book/show-individual-book/show-individual-book.component';
+import { OrderComponent } from './order/order.component';
+import { ShowOrderComponent } from './order/show-order/show-order.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { ShowIndividualBookComponent } from './book/show-individual-book/show-in
     CartComponent,
     AddbookComponent,
     ShowbookComponent,
-    ShowIndividualBookComponent
+    ShowIndividualBookComponent,
+    OrderComponent,
+    ShowOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { ShowIndividualBookComponent } from './book/show-individual-book/show-in
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
+    ReactiveFormsModule
   ],
   providers: [AuthenticateService, 
     {

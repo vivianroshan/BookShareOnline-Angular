@@ -11,11 +11,17 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class AddbookComponent implements OnInit {
 
-  constructor(public service: BookService, private _snackBar: MatSnackBar) { }
-
+  constructor(public service: BookService, private _snackBar: MatSnackBar) { 
+    
+  }
+  
   formData = new BookModel();
+  PhotoFileName ="";
+  PhotoFilePath="";
   ngOnInit(): void {
     this.resetForm();
+    
+    
   }
 
   resetForm(form?: NgForm) {
@@ -28,13 +34,16 @@ export class AddbookComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.service.formData.photoFileName = this.PhotoFileName;
     this.service.addBook().subscribe(
       res => {
         console.log(res);
+        this.resetForm();
         this._snackBar.open("Upload Successful !!!", "", {
           duration: 5000,
           verticalPosition: "top"
         });
+        
       },
       err => {
         console.log(err);
@@ -46,7 +55,15 @@ export class AddbookComponent implements OnInit {
     );
   }
 
-  onAdd() {
+  uploadPhoto(event: any){
+    var file=event.target.files[0];
+    const formData:FormData=new FormData();
+    formData.append('uploadedFile',file,file.name);
+
+    this.service.UploadPhoto(formData).subscribe((data:any)=>{
+      this.PhotoFileName=data.toString();
+      this.PhotoFilePath=this.service.PhotoUrl+this.PhotoFileName;
+    })
   }
   applyFilter(event: Event) {
 

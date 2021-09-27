@@ -44,10 +44,10 @@
             <button mat-icon-button color="primary" (click)="showIndividualBook(book)">
                 <mat-icon>launch</mat-icon>
             </button>
-            <button mat-icon-button (click)="addToCart()">
+            <button mat-icon-button (click)="addToCart(book.id)">
                 <mat-icon>add_shopping_cart</mat-icon>
             </button>
-            <button mat-icon-button color="accent">
+            <button mat-icon-button (click)="addToOrder(book.id)" color="accent">
                 <mat-icon>point_of_sale</mat-icon>
             </button>
         </td>
