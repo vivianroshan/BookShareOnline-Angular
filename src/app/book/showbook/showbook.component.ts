@@ -22,14 +22,14 @@ export class ShowbookComponent implements OnInit {
     private dialog: MatDialog,
     private _snackBar: MatSnackBar
   ) {
-    // this.service.listen().subscribe((m: any) => {
-    //   console.log(m);
-    //   this.refreshBookList();
-    // })
+    this.service.listen().subscribe((m: any) => {
+      console.log(m);
+      this.refreshBookList();
+    })
     this.refreshBookList();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { this.refreshBookList(); }
 
   listData = new MatTableDataSource<any>();
   displayedColumns: string[] = [
@@ -58,6 +58,8 @@ export class ShowbookComponent implements OnInit {
     this.dialog.open(ShowIndividualBookComponent, dialogConfig);
     this.service.bookid = book.id;
     this.service.formData = book;
+    this.service.rating = book.ratings;
+    // console.log(book.rating);
   }
   applyFilter(event: Event) {
     this.listData.filter = (event.target as HTMLInputElement).value

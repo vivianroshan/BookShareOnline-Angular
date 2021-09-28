@@ -40,7 +40,7 @@
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "./node_modules/popper/farms/index.js"
+              "./node_modules/popper/index.js"
             ]
           },
           "configurations": {

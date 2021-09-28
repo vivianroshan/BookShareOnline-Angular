@@ -11,7 +11,7 @@ import { BookService } from '../services/book.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: BookService,
+  constructor(public service: BookService,
     private dialog: MatDialog,) { 
     this.refreshBookList();
   }
@@ -21,17 +21,13 @@ export class HomeComponent implements OnInit {
   refreshBookList() {
     this.service.getBooks().subscribe((data) => {
       this.listData = data;
+      console.log(this.listData);
+      // for (let index = 0; index < this.listData.length; index++) {
+      //   this.listData[index].photoFileName = x; 
+      // }
       // console.log(this.listData);
-      for (let index = 0; index < this.listData.length; index++) {
-
-        // this.listData[index].photoFileName = x; 
-
-      }
-      // console.log(this.listData);
+      this.listData = this.listData.slice(0, 12);
     });
-  }
-  funct(x: any): string{
-    return this.service.PhotoUrl+x;
   }
   showIndividualBook(book: any,photoFileName : any) {
     const dialogConfig = new MatDialogConfig();

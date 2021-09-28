@@ -1,9 +1,8 @@
-<div class="container-flow" style="background-color: #aaa; padding-left:60px">
+<div class="container-flow bgcolor">
     <div class="row itemsBlock">
         <div *ngFor="let item of listData" style="padding: 10px;"class="col-md-3 col-sm-6 col-12">
-             <img class="itemImage" src={{this.funct(item.photoFileName)}} alt="image" style="width: 200px; height: 200px;" />
+             <img class="itemImage" src={{service.url(item.photoFileName)}} alt="image" style="width: 200px; height: 200px;" />
              <div ><button mat-button  (click)="showIndividualBook(item,item.photoFileName)" class="itemtitle">{{item.name}}</button></div>
         </div>
-
      </div>
 </div>
