@@ -38,5 +38,13 @@ export class AuthenticateService {
       return false;
     }
   }
+  ifBuyerOrBoth():boolean{
+    if(localStorage.getItem('role')=='buyer'||localStorage.getItem('role')=='both'||localStorage.getItem('role')=='admin'){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
   
 }

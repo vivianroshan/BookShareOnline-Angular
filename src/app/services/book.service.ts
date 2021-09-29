@@ -20,7 +20,7 @@ export class BookService {
   bookid= 0;
   rating = new Array<RatingModel>();
   userrating = 0;
-  avgrating(){
+  avgrating():Number{
     let total:any =0;
     let index:any=0;
     console.log(this.rating);

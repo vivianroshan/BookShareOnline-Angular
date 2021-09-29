@@ -11,7 +11,7 @@ import { AuthenticateService } from './services/authenticate.service';
 })
 export class AppComponent {
   
-  title = 'BookShareOnline-Angular';
+  title = 'Book Share Online';
 
   constructor(private dialog: MatDialog, public service: AuthenticateService)
   {
