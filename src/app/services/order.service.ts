@@ -11,14 +11,14 @@ export class OrderService {
   readonly APIUrl = "https://localhost:44343/api";
   
   getOrderList(){
-    return this.http.get<any[]>(this.APIUrl + "/Orders/"+localStorage.getItem('username'));
+    return this.http.get<any[]>(this.APIUrl + "/Orders/"+sessionStorage.getItem('username'));
   }
 
   Order(bookid:number,quantity:number){
-    return this.http.post<any[]>(this.APIUrl + "/Orders/"+localStorage.getItem('username')+"/"+bookid+"/ordered",quantity);
+    return this.http.post<any[]>(this.APIUrl + "/Orders/"+sessionStorage.getItem('username')+"/"+bookid+"/ordered",quantity);
   }
   cancelOrder(orderid:number){
-    return this.http.put<any[]>(this.APIUrl + "/Orders/Cancel/"+localStorage.getItem('username'),orderid);
+    return this.http.put<any[]>(this.APIUrl + "/Orders/Cancel/"+sessionStorage.getItem('username'),orderid);
   }
 }
 

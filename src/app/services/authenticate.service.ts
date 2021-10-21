@@ -20,7 +20,7 @@ export class AuthenticateService {
     return this.http.post<any>(this.APIUrl + "/authenticate/login",this.formData);
   }
   ifLoggedIn():boolean{
-    if(localStorage.getItem('token')=='0'){
+    if(sessionStorage.getItem('token')=='0'){
       return false;
     }
     else{
@@ -31,7 +31,7 @@ export class AuthenticateService {
     return this.http.post<any>(this.APIUrl + "/authenticate/register",this.formData2);
   }
   ifSellerOrBoth():boolean{
-    if(localStorage.getItem('role')=='seller'||localStorage.getItem('role')=='both'||localStorage.getItem('role')=='admin'){
+    if(sessionStorage.getItem('role')=='seller'||sessionStorage.getItem('role')=='both'||sessionStorage.getItem('role')=='admin'){
       return true;
     }
     else{
@@ -39,7 +39,7 @@ export class AuthenticateService {
     }
   }
   ifBuyerOrBoth():boolean{
-    if(localStorage.getItem('role')=='buyer'||localStorage.getItem('role')=='both'||localStorage.getItem('role')=='admin'){
+    if(sessionStorage.getItem('role')=='buyer'||sessionStorage.getItem('role')=='both'||sessionStorage.getItem('role')=='admin'){
       return true;
     }
     else{

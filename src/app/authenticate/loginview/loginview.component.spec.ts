@@ -1,14 +1,25 @@
+import { Overlay } from '@angular/cdk/overlay';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { InjectionToken, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog, MatDialogModule, MAT_DIALOG_SCROLL_STRATEGY_FACTORY } from '@angular/material/dialog';
+import { AuthenticateService } from 'src/app/services/authenticate.service';
 
 import { LoginviewComponent } from './loginview.component';
 
-describe('LoginviewComponent', () => {
+fdescribe('LoginviewComponent', () => {
   let component: LoginviewComponent;
   let fixture: ComponentFixture<LoginviewComponent>;
 
+  class mockMatDialog extends MatDialog{
+
+  }
   beforeEach(async () => {
+    
     await TestBed.configureTestingModule({
-      declarations: [ LoginviewComponent ]
+      imports:[MatDialogModule],
+      declarations: [ LoginviewComponent ],
+      providers:[ AuthenticateService, HttpClient, HttpHandler]
     })
     .compileComponents();
   });
@@ -19,7 +30,7 @@ describe('LoginviewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create', () => {
     expect(component).toBeTruthy();
   });
 });

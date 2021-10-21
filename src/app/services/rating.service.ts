@@ -13,6 +13,6 @@ export class RatingService {
   readonly APIUrl = "https://localhost:44343/api";
   readonly PhotoUrl = "https://localhost:44390/Photos/"
   rate(bookid:number, rating:number){
-    return this.http.post(this.APIUrl + "/ratings/"+localStorage.getItem('username')+"/"+bookid, rating);
+    return this.http.post(this.APIUrl + "/ratings/"+sessionStorage.getItem('username')+"/"+bookid, rating);
   }
 }

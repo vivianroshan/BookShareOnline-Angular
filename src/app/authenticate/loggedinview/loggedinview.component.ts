@@ -9,17 +9,17 @@ import { AuthenticateService } from 'src/app/services/authenticate.service';
 export class LoggedinviewComponent implements OnInit {
 
   constructor(public service:AuthenticateService) { 
-    
+     
   }
-  name=localStorage.getItem('username');
+  name=sessionStorage.getItem('username');
   ngOnInit(): void {
-    this.name=localStorage.getItem('username');
+    this.name=sessionStorage.getItem('username');
     console.log(this.name);
   }
 
   onClickSignOut(){
-    localStorage.setItem('token','0');
-    console.log(localStorage.getItem('token'));
+    sessionStorage.setItem('token','0');
+    console.log(sessionStorage.getItem('token'));
   }
 
 }

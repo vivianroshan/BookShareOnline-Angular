@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { AuthenticateService } from 'src/app/services/authenticate.service';
 
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog'
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
     this.service.getJWTToken().subscribe(
       res=>{
         console.log(res);
-        localStorage.setItem('token',res.token);
-        localStorage.setItem('username',res.name);
-        localStorage.setItem('role',res.role);
+        sessionStorage.setItem('token',res.token);
+        sessionStorage.setItem('username',res.name);
+        sessionStorage.setItem('role',res.role);
         this._snackBar.open("Login sucessful !!!","",{
           duration:5000,
           verticalPosition:"top"
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
         });
       });
       console.log(form);
+      form.resetForm();
       this.onClose();
   }
 

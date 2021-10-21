@@ -30,6 +30,7 @@ import { ShowIndividualBookComponent } from './book/show-individual-book/show-in
 import { OrderComponent } from './order/order.component';
 import { ShowOrderComponent } from './order/show-order/show-order.component';
 import { HomeComponent } from './home/home.component';
+import { AuthguardService } from './authguard/authguard.service';
 
 @NgModule({
   declarations: [
@@ -62,12 +63,14 @@ import { HomeComponent } from './home/home.component';
     MatTableModule,
     ReactiveFormsModule
   ],
-  providers: [AuthenticateService, 
+  providers: [
+    AuthenticateService, 
     {
       provide:HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    },
+    AuthguardService
   ],
   bootstrap: [AppComponent],
 })

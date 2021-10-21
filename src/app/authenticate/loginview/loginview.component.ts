@@ -3,7 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AuthenticateService } from 'src/app/services/authenticate.service';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
-
+ 
 @Component({
   selector: 'app-loginview',
   templateUrl: './loginview.component.html',
@@ -18,7 +18,7 @@ export class LoginviewComponent implements OnInit {
   constructor(private dialog: MatDialog, private service: AuthenticateService)
   {}
   onClickLogin() {
-    const dialogConfig = new MatDialogConfig();
+    const dialogConfig = new MatDialogConfig(); 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "70%";
